@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Your Name | Artist</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background: hsl(0, 100%, 100%);
+        color: #000000;
+        line-height: 1.6;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+      }
+
+      a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 25px 60px;
+        display: flex;
+        justify-content: space-between;
+        background: rgba(147, 186, 227, 0.75);
+        backdrop-filter: blur(15px);
+        z-index: 100;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+
+        height: 100vh;
+        background: url(hero.jpg) center center/cover;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+
+        background: rgba(147, 186, 227, 0.45);
+        padding: 60px;
+      }
+
+      .hero h1 {
+        font-size: 5rem;
+        font-weight: 300;
+      }
+
+      .tagline {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+      .intro {
+        margin-top: 30px;
+        font-size: 1rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+      }
+
+      section {
+        padding: 120px 10%;
+      }
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 50px;
+        font-weight: 300;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .project {
+        background: hsl(210, 35%, 89%);
+        transition: 0.3s;
+      }
+
+      .project:hover {
+        transform: translateY(-8px);
+      }
+
+      .project-info {
+        padding: 25px;
+      }
+
+      .project h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about img {
+        border-radius: 6px;
+      }
+
+      .news article {
+        margin-bottom: 40px;
+        border-bottom: 1px solid #ffffff;
+        padding-bottom: 30px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 80px;
+        background: rgb(127, 124, 124);
+      }
+
+      .contact a {
+        display: inline-block;
+        margin: 20px;
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .about {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div>
+        <strong>Richard McReynolds</strong>
+      </div>
+
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div id="particle-canvas"></div>
+
+      <div class="hero-content">
+        <h1>Richard McReynolds</h1>
+
+        <p class="tagline">
+          Composer · Multimedia Artist · Creative Technologist
+        </p>
+
+        <p class="intro">
+          I am a composer and multimedia artist whose work brings together
+          performance, digital systems, immersive sound, and collaborative
+          creative production. I am passionate about exploring connections
+          between artistic media to dissolve boundaries.
+        </p>
+      </div>
+    </header>
+
+    <section id="work">
+      <h2>Selected Work</h2>
+
+      <div class="projects">
+        <div class="project">
+          <img src="project1.jpg" />
+
+          <div class="project-info">
+            <h3>Project One</h3>
+
+            <p>
+              Short description of the work. Exhibition, installation,
+              performance or composition.
+            </p>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="project2.jpg" />
+
+          <div class="project-info">
+            <h3>Project Two</h3>
+
+            <p>Description of the work.</p>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="project3.jpg" />
+
+          <div class="project-info">
+            <h3>Project Three</h3>
+
+            <p>Description of the work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+
+      <div class="about">
+        <img src="portrait.jpg" />
+
+        <div>
+          <p>
+            Write a concise artist statement here. Describe your practice,
+            interests, and current research. Explain the themes that connect
+            your work across music, installation, live performance and
+            technology.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+
+      <div class="news">
+        <article>
+          <h3>Upcoming Performance</h3>
+
+          <p>June 2026</p>
+
+          <p>Short description of the event.</p>
+        </article>
+
+        <article>
+          <h3>New Commission</h3>
+
+          <p>March 2026</p>
+
+          <p>Information about a recent commission or exhibition.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <div class="contact">
+        <a href="mailto:richard.mcreynolds@gmail.com">Email</a>
+
+        <a href="https://www.instagram.com/mcreynoldsrich/" target="_blank"
+          >Instagram</a
+        >
+
+        <a
+          href="https://www.youtube.com/channel/UC-MT-EyO4hJgp1M0pwduLjw"
+          target="_blank"
+          >YouTube</a
+        >
+
+        <!--
+<a href="#">GitHub</a>
+-->
+      </div>
+    </section>
+
+    <footer>© 2026 Your Name</footer>
+
+    <script>
+      let particles = [];
+      let sketch = function (p) {
+        p.setup = function () {
+          let hero = document.querySelector(".hero");
+
+          let canvas = p.createCanvas(hero.offsetWidth, hero.offsetHeight);
+
+          canvas.parent("particle-canvas");
+
+          canvas.position(0, 0);
+        };
+
+        p.windowResized = function () {
+          let hero = document.querySelector(".hero");
+
+          p.resizeCanvas(hero.offsetWidth, hero.offsetHeight);
+        };
+
+        p.draw = function () {
+          p.clear();
+
+          // Only draw while hero visible
+
+          if (window.scrollY > window.innerHeight) {
+            return;
+          }
+
+          for (let i = 0; i < 2; i++) {
+            particles.push(new Particle(p.mouseX, p.mouseY));
+          }
+
+          for (let i = particles.length - 1; i >= 0; i--) {
+            particles[i].update();
+
+            particles[i].display();
+
+            if (particles[i].life < 0) {
+              particles.splice(i, 1);
+            }
+          }
+        };
+
+        class Particle {
+          constructor(x, y) {
+            this.x = x;
+            this.y = y;
+
+            this.vx = p.random(-1, 1);
+            this.vy = p.random(-1, 1);
+
+            this.life = 255;
+
+            this.size = p.random(2, 6);
+          }
+
+          update() {
+            let dx = p.mouseX - this.x;
+            let dy = p.mouseY - this.y;
+
+            let d = Math.sqrt(dx * dx + dy * dy) + 1;
+
+            this.vx += (dx / d) * 0.02;
+            this.vy += (dy / d) * 0.02;
+
+            this.vx *= 0.98;
+            this.vy *= 0.98;
+
+            this.x += this.vx;
+            this.y += this.vy;
+
+            this.life -= 2.5;
+          }
+
+          display() {
+            p.noStroke();
+
+            p.fill(255, this.life);
+
+            p.circle(this.x, this.y, this.size);
+          }
+        }
+      };
+
+      new p5(sketch);
+    </script>
+  </body>
+</html>
