@@ -29,7 +29,7 @@
       }
 
       a {
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
         text-decoration: none;
       }
 
@@ -55,7 +55,7 @@
         position: relative;
         overflow: hidden;
 
-        height: 100vh;
+        height: 50vh;
         background: url(hero.jpg) center center/cover;
 
         display: flex;
@@ -98,26 +98,22 @@
 
       h2 {
         font-size: 3rem;
-        margin-bottom: 50px;
+        margin-bottom: 25px;
         font-weight: 300;
       }
 
-      .projects {
+      .choices {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 40px;
       }
 
-      .project {
-        background: hsl(210, 35%, 89%);
+      .choice {
+        background: hsl(210, 58%, 61%);
         transition: 0.3s;
       }
 
-      .project:hover {
-        transform: translateY(-8px);
-      }
-
-      .project-info {
+      .choice-info {
         padding: 25px;
       }
 
@@ -139,7 +135,7 @@
 
       .news article {
         margin-bottom: 40px;
-        border-bottom: 1px solid #ffffff;
+        border-bottom: 1px solid #000000;
         padding-bottom: 30px;
       }
 
@@ -149,7 +145,7 @@
         background: rgb(127, 124, 124);
       }
 
-      .contact a {
+      .contact {
         display: inline-block;
         margin: 20px;
         font-size: 1.2rem;
@@ -183,7 +179,6 @@
       <ul>
         <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -208,39 +203,27 @@
     </header>
 
     <section id="work">
-      <h2>Selected Work</h2>
-
-      <div class="projects">
-        <div class="project">
+      <div class="choices">
+        <div class="choice">
           <img src="project1.jpg" />
 
-          <div class="project-info">
-            <h3>Project One</h3>
+          <div class="choice-info">
+            <h3>Portfolio</h3>
 
             <p>
-              Short description of the work. Exhibition, installation,
-              performance or composition.
+              A collection of my work in music, installation, live performance,
+              and technology.
             </p>
           </div>
         </div>
 
-        <div class="project">
+        <div class="choice">
           <img src="project2.jpg" />
 
-          <div class="project-info">
-            <h3>Project Two</h3>
+          <div class="choice-info">
+            <h3>Sketchbook</h3>
 
-            <p>Description of the work.</p>
-          </div>
-        </div>
-
-        <div class="project">
-          <img src="project3.jpg" />
-
-          <div class="project-info">
-            <h3>Project Three</h3>
-
-            <p>Description of the work.</p>
+            <p>A visual journal of ideas, concepts, and experiments.</p>
           </div>
         </div>
       </div>
@@ -260,28 +243,6 @@
             technology.
           </p>
         </div>
-      </div>
-    </section>
-
-    <section id="news">
-      <h2>News</h2>
-
-      <div class="news">
-        <article>
-          <h3>Upcoming Performance</h3>
-
-          <p>June 2026</p>
-
-          <p>Short description of the event.</p>
-        </article>
-
-        <article>
-          <h3>New Commission</h3>
-
-          <p>March 2026</p>
-
-          <p>Information about a recent commission or exhibition.</p>
-        </article>
       </div>
     </section>
 
