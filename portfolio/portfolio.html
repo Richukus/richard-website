@@ -190,19 +190,6 @@
     </main>
 
     <script src="../js/navigation.js"></script>
-
-    <script>
-      fetch("../components/navbar.html")
-        .then((response) => {
-          console.log("Status:", response.status);
-          return response.text();
-        })
-        .then((data) => {
-          console.log(data);
-          document.getElementById("navbar-placeholder").innerHTML = data;
-          initNavigation();
-        })
-        .catch((error) => console.error(error));
-    </script>
+    <script src="../js/loadComponents.js"></script>
   </body>
 </html>
