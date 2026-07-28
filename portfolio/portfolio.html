@@ -1,19 +1,7 @@
 <!doctype html>
 <html lang="en">
   <body>
-    <nav id="navbar">
-      <div class="logo">Richard McReynolds</div>
-
-      <ul>
-        <li><a href="#portfolio">Portfolio</a></li>
-
-        <li><a href="#studio">Studio</a></li>
-
-        <li><a href="#experiments">Experiments</a></li>
-
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <head>
       <meta charset="UTF-8" />
@@ -24,6 +12,7 @@
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="stylesheet" href="../css/style.css" />
+      <link rel="stylesheet" href="../css/portfolio.css" />
     </head>
 
     <header class="page-header">
@@ -201,5 +190,19 @@
     </main>
 
     <script src="../js/navigation.js"></script>
+
+    <script>
+      fetch("../components/navbar.html")
+        .then((response) => {
+          console.log("Status:", response.status);
+          return response.text();
+        })
+        .then((data) => {
+          console.log(data);
+          document.getElementById("navbar-placeholder").innerHTML = data;
+          initNavigation();
+        })
+        .catch((error) => console.error(error));
+    </script>
   </body>
 </html>
