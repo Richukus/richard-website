@@ -25,7 +25,7 @@ let sketch = function (p) {
       return;
     }
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 5; i++) {
       particles.push(new Particle(p.mouseX, p.mouseY));
     }
 
@@ -50,7 +50,7 @@ let sketch = function (p) {
 
       this.life = 255;
 
-      this.size = p.random(2, 6);
+      this.size = p.random(1, 3);
     }
 
     update() {
@@ -74,7 +74,7 @@ let sketch = function (p) {
     display() {
       p.noStroke();
 
-      p.fill(0, 120, 255, this.life);
+      p.fill(0, p.random(50, 255), 255, this.life);
       p.circle(this.x, this.y, this.size);
     }
   }
