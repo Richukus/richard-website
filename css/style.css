@@ -264,21 +264,37 @@ h2 {
 }
 
 .choice {
-  background: white;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
 
-  border: 1px solid #ddd;
-
-  transition: 0.3s;
+.choice img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
 .choice:hover {
   transform: translateY(-6px);
-
+  transform: scale(1.03);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
 .choice-info {
-  padding: 25px;
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+
+  color: white;
+  background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.75) 100%);
 }
 
 .choice h3 {
@@ -305,19 +321,44 @@ h2 {
 }
 
 footer {
+  width: 100%;
+  padding: 4rem 2rem 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
   text-align: center;
-  padding: 80px;
-  background: rgb(127, 124, 124);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.6;
 }
 
 .contact {
   display: flex;
+  justify-content: center;
+  align-items: center;
 
-  gap: 30px;
+  gap: 1.5rem;
+  width: 100%;
+}
 
-  flex-wrap: wrap;
-  margin: 20px;
+.contact a {
+  color: white;
   font-size: 1.2rem;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact a:hover {
+  color: #8ecdf2;
+  transform: translateY(-2px);
 }
 
 #particle-canvas {

@@ -9,6 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Font for the symbols for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
   </head>
@@ -39,7 +44,7 @@
     <section id="work">
       <div class="choices">
         <div class="choice">
-          <img src="project1.jpg" />
+          <img src="/portfolio/images/Square_Circle.png" />
 
           <div class="choice-info">
             <h3>Portfolio</h3>
@@ -52,7 +57,10 @@
         </div>
 
         <div class="choice">
-          <img src="project2.jpg" />
+          <img
+            src="projects/sound&movement/images/S&M_2.jpg"
+            alt="Sketchbook"
+          />
 
           <div class="choice-info">
             <h3>Sketchbook</h3>
@@ -63,29 +71,42 @@
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-
+    <footer>
       <div class="contact">
-        <a href="mailto:richard.mcreynolds@gmail.com">Email</a>
+        <a href="mailto:richard.mcreynolds@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
 
-        <a href="https://www.instagram.com/mcreynoldsrich/" target="_blank"
-          >Instagram</a
+        <a
+          href="https://www.instagram.com/mcreynoldsrich/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
         >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
 
         <a
           href="https://www.youtube.com/channel/UC-MT-EyO4hJgp1M0pwduLjw"
           target="_blank"
-          >YouTube</a
+          rel="noopener noreferrer"
+          aria-label="YouTube"
         >
+          <i class="fa-brands fa-youtube"></i>
+        </a>
 
-        <!--
-<a href="#">GitHub</a>
--->
+        <a
+          href="https://soundcloud.com/richard-mcreynolds"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="SoundCloud"
+        >
+          <i class="fa-brands fa-soundcloud"></i>
+        </a>
       </div>
-    </section>
 
-    <footer>© 2026 Your Name</footer>
+      <p>© 2026 Richard McReynolds</p>
+    </footer>
 
     <script src="js/particles.js"></script>
 
