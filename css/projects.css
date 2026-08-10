@@ -1,0 +1,37 @@
+/* PROJECT GRID */
+
+.project-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 50px;
+}
+
+.project img {
+  aspect-ratio: 16/10;
+
+  object-fit: cover;
+
+  margin-bottom: 20px;
+}
+
+.project h3 {
+  font-size: 1.6rem;
+
+  font-weight: 400;
+
+  margin-bottom: 15px;
+}
+
+.tags {
+  margin-top: 20px;
+
+  font-size: 0.85rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  opacity: 0.6;
+}
