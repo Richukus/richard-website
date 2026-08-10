@@ -1,0 +1,173 @@
+<title>Richard McReynolds | Music</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/music.css" />
+
+<!-- Font for the symbols for social media icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
+
+<main>
+  <header class="page-header">
+    <h1>Music</h1>
+
+    <p>
+      Electroacoustic composition, instrumental works, immersive sound and
+      recordings.
+    </p>
+  </header>
+
+  <section class="medium-grid">
+    <!-- IN TANDEM -->
+    <article class="medium-item">
+      <a href="../projects/in-tandem/project.html" class="medium-link">
+        <div class="medium-image">
+          <img src="../projects/in-tandem/images/image.jpg" alt="In Tandem" />
+        </div>
+
+        <h2>In Tandem</h2>
+      </a>
+
+      <p>
+        Electronic music and movement created with National Dance Company Wales.
+      </p>
+
+      <div class="music-player" data-player>
+        <audio preload="metadata">
+          <source src="audio/Slink_Recording.wav" type="audio/wav" />
+        </audio>
+
+        <button class="play-button" type="button" aria-label="Play In Tandem">
+          <i class="fa-solid fa-play"></i>
+        </button>
+
+        <div class="player-main">
+          <div class="player-info">
+            <span class="player-title">In Tandem</span>
+            <span class="player-time">0:00 / 0:00</span>
+          </div>
+
+          <input
+            class="progress-bar"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="Track progress"
+          />
+        </div>
+      </div>
+    </article>
+
+    <!-- PENDULUM -->
+    <article class="medium-item">
+      <a href="../projects/pendulum/project.html" class="medium-link">
+        <div class="medium-image">
+          <img src="../projects/pendulum/images/image.jpg" alt="Pendulum" />
+        </div>
+
+        <h2>Pendulum</h2>
+      </a>
+
+      <p>
+        Electronic music exploring relationships between movement, rhythm and
+        physical gesture.
+      </p>
+
+      <div class="music-player" data-player>
+        <audio preload="metadata">
+          <source src="../audio/pendulum.mp3" type="audio/mpeg" />
+        </audio>
+
+        <button class="play-button" type="button" aria-label="Play Pendulum">
+          <i class="fa-solid fa-play"></i>
+        </button>
+
+        <div class="player-main">
+          <div class="player-info">
+            <span class="player-title">Pendulum</span>
+            <span class="player-time">0:00 / 0:00</span>
+          </div>
+
+          <input
+            class="progress-bar"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="Track progress"
+          />
+        </div>
+      </div>
+    </article>
+
+    <!-- VISCERAL MINDFULNESS -->
+    <article class="medium-item">
+      <a
+        href="../projects/visceral-mindfulness/project.html"
+        class="medium-link"
+      >
+        <div class="medium-image">
+          <img
+            src="../projects/visceral-mindfulness/images/image.jpg"
+            alt="Visceral Mindfulness"
+          />
+        </div>
+
+        <h2>Visceral Mindfulness</h2>
+      </a>
+
+      <p>
+        A multimedia performance combining electronic sound, movement and
+        interactive technology.
+      </p>
+
+      <div class="music-player" data-player>
+        <audio preload="metadata">
+          <source src="../audio/visceral-mindfulness.mp3" type="audio/mpeg" />
+        </audio>
+
+        <button
+          class="play-button"
+          type="button"
+          aria-label="Play Visceral Mindfulness"
+        >
+          <i class="fa-solid fa-play"></i>
+        </button>
+
+        <div class="player-main">
+          <div class="player-info">
+            <span class="player-title">Visceral Mindfulness</span>
+            <span class="player-time">0:00 / 0:00</span>
+          </div>
+
+          <input
+            class="progress-bar"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="Track progress"
+          />
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Load navigation and shared components -->
+<script src="../js/navigation.js"></script>
+<script src="../js/loadComponents.js"></script>
+<script src="../js/music.js"></script>
