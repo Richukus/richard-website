@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ESP32 and Accelerometers</title>
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/blog.css" />
+
+    <!-- Font for the symbols for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ==========================
+         NAVIGATION
+    ========================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- ==========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+      <!-- ==========================
+             BLOG POST
+        ========================== -->
+
+      <article class="blog-post" aria-labelledby="blog-title">
+        <!-- ==========================
+             PROJECT HEADER
+        ========================== -->
+
+        <header class="page-header">
+          <div class="project-header-meta">
+            <span> 2025–present </span>
+
+            <span> Performance / Technology </span>
+          </div>
+
+          <h1 id="blog-title">ESP32 and Accelerometers</h1>
+
+          <p class="project-intro">
+            This is an import from the blog on my last website. It is
+            documentation of how I set up the ESP32 microcontrollers in the
+            project Capturing Movement in Sound and how to get them sending data
+            to Max/MSP.
+          </p>
+
+          <div class="tags">
+            <span>Dance</span>
+            <span>Electronics</span>
+            <span>Technology</span>
+            <span>Composition</span>
+          </div>
+
+          <div class="blog-toc" aria-label="Table of contents">
+            <p class="eyebrow">Contents</p>
+
+            <ol>
+              <li><a href="#overview">Overview</a></li>
+              <li><a href="#what-is-an-esp32">What is an ESP32?</a></li>
+              <li><a href="#components">The Components</a></li>
+              <li><a href="#programming">Programming the ESP32</a></li>
+              <li><a href="#max-msp">The Max/MSP Patch</a></li>
+            </ol>
+          </div>
+        </header>
+
+        <!-- ==========================
+             HERO IMAGE
+        ========================== -->
+
+        <section class="project-hero-image">
+          <img
+            src="/projects/sound&movement/images/Rich+Jodie_181023-102.jpg"
+            alt="Sound & Movement performance"
+          />
+
+          <p class="image-caption">Sound &amp; Movement, rehearsal, 2026.</p>
+        </section>
+
+        <!-- ==========================
+             OVERVIEW
+        ========================== -->
+
+        <section class="project-content-section" id="overview">
+          <div class="project-section-label">
+            <h2>Overview</h2>
+          </div>
+
+          <div class="project-section-content">
+            <p class="large-text">
+              This post focuses on setting up an ESP32 microcontroller with
+              accelerometers for movement tracking. I will share the code and
+              Max/MSP patch that I used to connect the device through WIFI. It
+              will be a quick run-through of the material. I tend to research
+              code examples online then edit it them for my purpose. My
+              understanding develops as I figure out and refine the interactions
+              that I want. Hopefully this guide will provide you with the
+              resources to get started in the same way. In the future, I might
+              break this down into smaller topics.
+            </p>
+
+            <p>
+              You will need a little knowledge in coding and circuits. If
+              microcontrollers such as Arduino are completely new to you, I
+              would recommend exploring some easy projects first.
+            </p>
+
+            <aside class="blog-callout">
+              <strong>Before you start</strong>
+              <p>
+                This guide assumes some basic familiarity with circuits,
+                microcontrollers and coding. If you are starting from scratch,
+                <a
+                  href="https://www.youtube.com/@paulmcwhorter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Paul McWhorter's Arduino tutorials
+                </a>
+                are a useful place to begin.
+              </p>
+            </aside>
+
+            <p>
+              There are a number of tutorials online. The
+              <a
+                href="https://www.youtube.com/@paulmcwhorter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Paul McWhorter tutorials
+              </a>
+              were how I started. They helped me get up to speed with the basics
+              of creating simple circuits, and learning from tutorials is also a
+              great way to inspire new ideas for projects.
+            </p>
+            <h2 id="what-is-an-esp32">What is an ESP32?</h2>
+
+            <p>
+              One of the key interactions of Turning Mvt into Sound was the use
+              of ESP32 circuit boards. They are microcontrollers that have Wi-Fi
+              and Bluetooth enabled.
+            </p>
+
+            <p>
+              Similar devices are Arduino and Raspberry Pi, but there are many
+              others. I had used Arduino boards before, and they work in a
+              similar way to the ESP32. The ESP32 are a little cheaper, which is
+              why I chose them for this project.
+            </p>
+
+            <p>
+              One of the things that surprised me was how stable they were on
+              the Wi-Fi. We easily connected to the hire-space Wi-Fi at Chapter
+              Arts Centre each day. They were easy to use and not too bad to set
+              up.
+            </p>
+
+            <figure class="blog-inline-image image-left">
+              <img
+                src="../sound&movement/images/Rich+Jodie_181023-080.jpg"
+                alt="Richard working with a laptop during Sound &amp; Movement"
+              />
+              <figcaption>
+                Working with the ESP32 setup during Sound &amp; Movement.
+              </figcaption>
+            </figure>
+            <p>
+              In the future, I want to connect them with Bluetooth. This is
+              because I had a project where the WIFI was public, and I couldn't
+              connect to it with them. It required a login and password through
+              a public registration form. I couldn’t figure out how to code that
+              example, though I’m sure it is possible. Bluetooth communication
+              would avoid WIFI connection issues.
+            </p>
+
+            <h2 id="components">The Components</h2>
+            <p>
+              I bought these versions of the ESP32. I have heard that earlier
+              versions have quirks when trying to upload code to them. This
+              hasn’t been my experience.
+            </p>
+
+            <p>
+              The lithium batteries can be bought here. They plug into the
+              device to charge. They are a little bit bulky but they worked well
+              and we didn’t have issues with running out of charge. I’m sure
+              there are more compact ones out there if that is a priority for
+              you.
+            </p>
+
+            <p>
+              These are the MPU 6050 chips. They detect the rotation of the
+              sensor. This was an interesting change from tracking position,
+              especially when it is attached to an arm. You think about the
+              movement of the arm, but when you are considering the input from
+              the MPU, it is the rotation that you are really thinking about.
+            </p>
+
+            <p>
+              Using an Arduino or microcontroller means that you will need to
+              have some ability to solder components or use a breadboard. I had
+              experience from GCSE technology in school, which was about 20
+              years before when I began this project so you don’t need to be an
+              expert. My results may make a professional recoil in disgust, but
+              they worked and have not fallen apart for me.
+            </p>
+
+            <p>
+              The soldering that you have to do is a bit fiddly, but the
+              connections are simple. I wanted to use my chips just as motion
+              controllers, so I first soldered the headers that come with the
+              MPU6050 to the board.
+            </p>
+
+            <p>
+              I then soldered wires onto the headers and straight onto my
+              boards. I have a feeling this is something else that professionals
+              may not like, but it worked for me. The connections that you need
+              to make are straightforward.
+            </p>
+
+            <div class="blog-code-block">
+              <p class="code-label">MPU6050 wiring</p>
+              <pre><code>MPU6050
+VCC  → VCC
+GND  → GND
+SCL  → SCL / IO21
+SDA  → SDA / IO22</code></pre>
+            </div>
+
+            <aside class="blog-callout blog-callout-note">
+              <strong>Note</strong>
+              <p>
+                Check the pinout for your particular ESP32 board before wiring
+                the sensor. The connections above are the ones used in this
+                project.
+              </p>
+            </aside>
+
+            <h2 id="programming">Programming the ESP32</h2>
+            <p>
+              Arduino is written in C++. It may seem a bit daunting at first,
+              but there are lots of tutorials and support online to guide you. I
+              have now created a number of projects with Arduino but wouldn’t
+              say that I know C++ well, but I am confident in working alongside
+              resources to make the projects that I set out to do.
+            </p>
+
+            <p>
+              The first thing that you need before getting the code to work is
+              to install libraries. These add functionality to the ESP32 code.
+            </p>
+
+            <p>
+              This part is slightly hazy in my memory as I write this, as I
+              tried out a lot of different libraries and ways of working before
+              getting the complete project working.
+            </p>
+
+            <p>
+              Because of this, I have included some external resources on
+              <a
+                href="https://docs.arduino.cc/libraries/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arduino libraries
+              </a>
+              and
+              <a
+                href="https://learn.adafruit.com/mpu6050-6-dof-accelerometer-and-gyro/arduino"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                the Adafruit MPU6050 setup
+              </a>
+              to help guide you.
+            </p>
+
+            <p>
+              The ESP32 library that I have got working is esp32 by Espressif,
+              or esp32 by DFRobot. The current
+              <a
+                href="https://github.com/espressif/arduino-esp32"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arduino-ESP32 project
+              </a>
+              is maintained by Espressif.
+            </p>
+
+            <p>
+              The board package can be installed through the Arduino IDE. This
+              means that you can select FireBeetle 2 ESP32-E from the board
+              selection, then select your port.
+            </p>
+
+            <div class="blog-code-block">
+              <p class="code-label">Arduino IDE</p>
+              <pre><code>Tools → Manage Libraries
+Board → FireBeetle 2 ESP32-E
+Port → select the connected ESP32
+Upload speed → 115200 (if you encounter “exit 2”)</code></pre>
+            </div>
+
+            <p>
+              For a current installation guide, see the
+              <a
+                href="https://espressif.github.io/arduino-esp32/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arduino-ESP32 documentation </a
+              >.
+            </p>
+
+            <figure class="blog-inline-image image-right">
+              <img
+                src="../sound&movement/images/Rich+Jodie_181023-084.jpg"
+                alt="Richard working with a laptop during Sound &amp; Movement"
+              />
+              <figcaption>Testing the ESP32 and sensor connection.</figcaption>
+            </figure>
+
+            <p>
+              The
+              <a
+                href="https://github.com/adafruit/Adafruit_MPU6050"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Adafruit MPU6050 library
+              </a>
+              means you can read data from the MPU6050. More detailed
+              instructions can be found in
+              <a
+                href="https://learn.adafruit.com/mpu6050-6-dof-accelerometer-and-gyro/arduino"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Adafruit's MPU6050 Arduino guide </a
+              >.
+            </p>
+
+            <p>
+              The other libraries should be included with Arduino. These control
+              the Wi-Fi connection and OSC messages, which are what we will use
+              to send data to Max/MSP.
+            </p>
+
+            <p>
+              After installing the libraries, copy and paste the code into your
+              Arduino IDE. The code that I used can be found here:
+            </p>
+
+            <aside class="blog-callout">
+              <strong>Project code</strong>
+              <p>
+                Add the link to your ESP32 sketch here when you publish the
+                project code. I have left this as a placeholder because the
+                imported post does not contain the original URL.
+              </p>
+            </aside>
+
+            <p>Changes that you need to make:</p>
+
+            <ul class="blog-list">
+              <li>
+                IP to send to. If you are on a Mac, the quickest way to do this
+                is to press alt on your keyboard and click the WIFI icon at the
+                top right of your desktop.
+              </li>
+              <li>
+                The login details of your WIFI. SSID – Username, then your
+                password.
+              </li>
+              <li>
+                The local port is also important to note. If you are using
+                multiple ESP32s at once, change the numbers of each and make a
+                note of them.
+              </li>
+            </ul>
+
+            <p>
+              That should be the changes that you need. Upload the sketch to
+              your chip.
+            </p>
+
+            <p>
+              While the ESP32 is still connected, open up the serial viewer. It
+              should hopefully say that you are connected correctly.
+            </p>
+
+            <aside class="blog-callout blog-callout-important">
+              <strong>Keep this IP address</strong>
+              <p>
+                The serial viewer will give you the IP address of your ESP32.
+                This is different from your computer's IP address, and you will
+                need the ESP32 address in Max/MSP.
+              </p>
+            </aside>
+
+            <aside class="blog-callout blog-callout-resources">
+              <strong>Useful resources</strong>
+              <ul>
+                <li>
+                  <a
+                    href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download and install Arduino IDE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://espressif.github.io/arduino-esp32/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Arduino-ESP32 documentation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://learn.adafruit.com/mpu6050-6-dof-accelerometer-and-gyro/arduino"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Adafruit MPU6050 Arduino guide
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/@paulmcwhorter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Paul McWhorter's Arduino tutorials
+                  </a>
+                </li>
+              </ul>
+            </aside>
+
+            <h2 id="max-msp">The Max/MSP Patch</h2>
+            <p>
+              In Capturing Movement in Sound, I originally explored a separate
+              gyroscope sensor rather than the MPU6050.
+            </p>
+
+            <p>
+              I switched to the MPU6050, which has both an accelerometer and
+              gyroscope sensor, because I thought it would be best to have both
+              functionalities available.
+            </p>
+            <p>
+              It turned out that the accelerometer was the most useful data for
+              my use so I just used it, but this patch includes both so you can
+              explore for your own use.
+            </p>
+
+            <p>
+              I have attached a Max/MSP patch that visualises the data, as well
+              as how to perform a simple smoothing of the data.
+            </p>
+
+            <p>
+              The smoothing is very rough and ready and it is signal based, so
+              you will need to turn on the DSP to make it work. In raw form, the
+              data jumps about all over the place, so this just smooths it out
+              to make it a little more usable.
+            </p>
+
+            <p>When you open the patch, open the subpatch MPU6050_1.</p>
+
+            <div class="blog-code-block">
+              <p class="code-label">Max/MSP network settings</p>
+              <pre><code>udpsend
+IP address  → ESP32 IP address
+port        → ESP32 listening port
+
+udpreceive
+IP address  → laptop IP address
+port        → ESP32 sending port</code></pre>
+            </div>
+
+            <p>
+              Change the <code>udpsend</code> IP address to the ESP32's IP, and
+              the port number to the port that it is listening on. Then change
+              <code>udpreceive</code> to your laptop's IP address and the port
+              to the one that the ESP32 is sending data to.
+            </p>
+
+            <p>
+              With those changes, toggle the stream with a 1. If audio is on,
+              the ESP32 data should be showing in the main patch.
+            </p>
+
+            <p>
+              Use the sends to route the data to whatever it is that you want to
+              control.
+            </p>
+
+            <p>
+              Hopefully this post gives an idea of how to set up the ESP32. It
+              is more involved than I remember it being, but this should give
+              you enough information to get started.
+            </p>
+          </div>
+        </section>
+
+        <aside class="blog-callout blog-callout-end">
+          <strong>Something unclear?</strong>
+          <p>
+            If you are lost or there is something unclear, give me a
+            message/comment and I will look to amend the post.
+          </p>
+        </aside>
+      </article>
+
+      <!-- ==========================
+             BACK TO PROJECTS
+        ========================== -->
+
+      <section class="project-navigation">
+        <a href="../projects.html"> ← Back to projects </a>
+      </section>
+
+      <img
+        class="arts-council-logo"
+        src="/images/ArtsCouncilStrip.png"
+        alt="Arts Council of Wales logo"
+      />
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Load the navigation bar -->
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/loadComponents.js"></script>
+  </body>
+</html>

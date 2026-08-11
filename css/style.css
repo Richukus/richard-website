@@ -369,6 +369,44 @@ footer p {
   z-index: 1;
 }
 
+.page-header {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 180px 10% 30px;
+}
+
+.page-header h1 {
+  font-size: clamp(3rem, 7vw, 5rem);
+
+  font-weight: 300;
+
+  letter-spacing: -2px;
+
+  margin-bottom: 30px;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+
+  line-height: 1.8;
+
+  max-width: 750px;
+}
+
+.tags {
+  margin-top: 20px;
+
+  font-size: 0.85rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  opacity: 0.6;
+}
+
 @media (max-width: 900px) {
   .hero h1 {
     font-size: 3rem;

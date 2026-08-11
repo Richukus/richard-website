@@ -28,8 +28,9 @@ PAGE HEADER
   max-width: 750px;
 
   font-size: 1.2rem;
-
   line-height: 1.8;
+
+  color: #d9e2e3;
 }
 
 /* ==========================
@@ -55,6 +56,7 @@ WORK ITEM
 ========================== */
 
 .medium-item {
+  color: #d9e2e3;
   min-width: 0;
 }
 
@@ -124,12 +126,55 @@ DESCRIPTION
   max-width: 600px;
 
   margin-top: 12px;
+  margin-bottom: 7px;
 
   font-size: 0.95rem;
-
   line-height: 1.6;
 
-  color: #666;
+  color: #d9e2e3;
+}
+
+.work-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.work-title h2 {
+  margin: 0;
+}
+
+.work-details {
+  display: flex;
+  flex-direction: column;
+  padding-top: 13px;
+  gap: 0;
+}
+
+.work-details p {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.instrumentation {
+  color: #aebec1;
+  margin-top: 0px;
+  font-size: 0.9rem;
+  opacity: 1;
+}
+
+.year {
+  color: #8fa2a6;
+  font-size: 0.8rem;
+  margin-top: -10px;
+}
+
+.programme-note {
+  color: #d9e2e3;
+}
+
+.programme-note h3 {
+  color: #f4f6f6;
 }
 
 /* ==========================
@@ -137,11 +182,13 @@ DESCRIPTION
    ========================== */
 
 .music-player {
+  color: #d9e2e3;
+
   display: flex;
   align-items: center;
   gap: 18px;
 
-  margin-top: 28px;
+  margin-top: 5px;
   padding-top: 18px;
 
   border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -284,6 +331,7 @@ MOBILE
   }
 
   .page-header {
+    color: #f4f6f6;
     padding-top: 140px;
 
     padding-bottom: 60px;

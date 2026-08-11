@@ -24,14 +24,8 @@
   margin-bottom: 15px;
 }
 
-.tags {
-  margin-top: 20px;
-
-  font-size: 0.85rem;
-
-  text-transform: uppercase;
-
-  letter-spacing: 2px;
-
-  opacity: 0.6;
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }

@@ -1,0 +1,191 @@
+/* ==========================
+   BLOG POST
+========================== */
+
+.blog-post {
+  max-width: 100%;
+}
+
+.blog-post .project-content-section {
+  position: relative;
+}
+
+.blog-post h2 {
+  font-size: 1.65rem;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post h3 {
+  font-size: 1.25rem;
+}
+/* ==========================
+   TABLE OF CONTENTS
+========================== */
+
+.blog-toc {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px;
+  padding: 25px 0;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+
+.blog-toc .eyebrow {
+  margin-bottom: 15px;
+}
+
+.blog-toc ol {
+  display: block;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.blog-toc li {
+  display: list-item;
+  margin-bottom: 8px;
+}
+
+.blog-toc a {
+  text-decoration: none;
+}
+
+/* ==========================
+   HERO IMAGE
+========================== */
+
+.blog-post .project-hero-image {
+  margin-bottom: 30px;
+}
+
+/* ==========================
+   ARTICLE CONTENT
+========================== */
+
+.blog-inline-image {
+  width: 240px;
+  max-width: 35%;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-inline-image.image-left {
+  float: left;
+  margin-right: 2rem;
+}
+
+.blog-inline-image.image-right {
+  float: right;
+  margin-left: 2rem;
+}
+
+.blog-inline-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blog-inline-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.project-section-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.blog-code-block {
+  margin: 1.5rem 0 2rem;
+}
+
+.blog-code-block .code-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.blog-code-block pre {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  border: 1px solid currentColor;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.blog-code-block code {
+  font-family: inherit;
+}
+
+.blog-callout {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid currentColor;
+}
+
+.blog-callout strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.blog-callout p:last-child,
+.blog-callout ul:last-child {
+  margin-bottom: 0;
+}
+
+.blog-callout ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.blog-callout-important {
+  border-left-width: 5px;
+}
+
+.blog-callout-end {
+  margin-top: 3rem;
+}
+
+.arts-council-logo {
+  display: block;
+  width: 180px;
+  max-width: 40%;
+  height: auto;
+  margin: 3rem auto 0;
+}
+
+.blog-post .project-hero-image {
+  margin-bottom: 30px;
+}
+
+.blog-post .project-content-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (max-width: 700px) {
+  .blog-inline-image,
+  .blog-inline-image.image-left,
+  .blog-inline-image.image-right {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem auto;
+  }
+
+  .blog-post h2 {
+    font-size: 1.4rem;
+  }
+
+  .arts-council-logo {
+    width: 150px;
+    max-width: 60%;
+  }
+}
