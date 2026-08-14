@@ -29,3 +29,9 @@
   text-decoration: none;
   color: inherit;
 }
+
+.blog-list {
+  display: list-item;
+  margin-bottom: 8px;
+  color: inherit;
+}

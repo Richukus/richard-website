@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>The Gametrak Controller</title>
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/blog.css" />
+
+    <!-- Font for the symbols for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ==========================
+         NAVIGATION
+    ========================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- ==========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+      <!-- ==========================
+             BLOG POST
+        ========================== -->
+
+      <article class="blog-post" aria-labelledby="blog-title">
+        <!-- ==========================
+             PROJECT HEADER
+        ========================== -->
+
+        <header class="page-header">
+          <div class="project-header-meta">
+            <span> 2023 </span>
+
+            <span> Performance / Technology </span>
+          </div>
+
+          <h1 id="blog-title">The Gametrak Controller</h1>
+
+          <p class="project-intro">
+            This is an import from the blog on my last website. In it I go over
+            the use of the Gametrak Controller in the Arts Council of Wales
+            funded R&D: Capturing Movement in Sound.
+          </p>
+
+          <div class="tags">
+            <span>Dance</span>
+            <span>Electronics</span>
+            <span>Technology</span>
+          </div>
+
+          <div class="blog-toc" aria-label="Table of contents">
+            <p class="eyebrow">Contents</p>
+
+            <ol>
+              <li><a href="#overview">Overview</a></li>
+              <li>
+                <a href="#connecting"
+                  >Connecting the GameTrak Controller to Max/MSP</a
+                >
+              </li>
+              <li>
+                <a href="#zones"
+                  >Capturing Mvt into Sound: Exploring the Interactions:
+                  Zones</a
+                >
+              </li>
+            </ol>
+          </div>
+        </header>
+
+        <!-- ==========================
+             HERO IMAGE
+        ========================== -->
+
+        <section class="project-hero-image">
+          <img
+            src="/projects/sound&movement/images/Rich+Jodie_181023-092.jpg"
+            alt="Sound & Movement performance"
+          />
+
+          <p class="image-caption">
+            Sound &amp; Documentation by: Alastair Gray
+          </p>
+        </section>
+
+        <!-- ==========================
+             OVERVIEW
+        ========================== -->
+
+        <section class="project-content-section" id="overview">
+          <div class="project-section-label">
+            <h2 id="overview">Overview</h2>
+          </div>
+
+          <div class="project-section-content">
+            <p class="large-text">
+              As I mentioned in the previous post for Capturing Movement in
+              Sound, the GameTrak Controller is a device that I return to often.
+              It uses USB, works consistently and provides an expressive range
+              of movement using 360º control of two joysticks with tethers. If
+              you are going to start using alternative devices for music it
+              gives you many options and is simple to start with. You have the
+              joysticks x and y controls but then you can pull out the tether to
+              provide an additional z axis. It is a great device with
+              theatricality built into it. Everyone who we showed the device to
+              had a range of ideas for how it could be used.
+            </p>
+
+            <p>
+              The device was first introduced to me by SwanLorc as part of Ty
+              Cerdd’s CoDi: Electronic. They showed us the patch that I still
+              use today, linked below. The opportunity explored 6 different
+              pieces written for SwanLorc and it was my first introduction to
+              the possibilities of the device. Jenn Kirby, who was part of
+              SwanLorc, at that time is someone to check out if you want to see
+              new engaging ways to perform electronic music.
+            </p>
+
+            <h2 id="connecting">
+              Connecting the GameTrak Controller to Max/MSP
+            </h2>
+
+            <p>
+              If this post does not cover what you need to know, please leave a
+              comment and i will try to answer it. I am presuming some knowledge
+              with Max/MSP. The goal of this section is to help you connect the
+              controller to Max and then I leave you to do whatever you would
+              like with it.
+            </p>
+
+            <p>
+              Connecting the device is generally simple, or at least it was for
+              my GameTrak controllers, and I have owned 3 to date. For other
+              versions of the device, you may need to do a little bit of
+              tinkering. Friends of mine have used the guidance from this site
+              and a tiny little bit of soldering to get theirs to work. It all
+              depends what version of GameTrak Controller that you are using.
+            </p>
+            <p>
+              When the device is plugged in, this patch receives the data in
+              Max/MSP using the “hi” (human interface) object. This is the
+              object that you use for connecting a variety of controllers to
+              Max/MSP. Use the print object to see what data your device sends
+              out and route it to whatever you want to do. In the patch above,
+              this is hopefully done for you. I tend to run that as a separate
+              patch, or else place it in a subpatcher and use sends to route the
+              data where I want it to go. It is important that the GameTrak is
+              plugged in before you open the patch. The data that you get is
+              from 0 to 4095 on each of the axis. It is up to you how you want
+              to map the data. The data is also quite steady, there are not many
+              erratic jumps or things to smooth out compared to other devices.
+              It is as simple as that.
+            </p>
+
+            <figure class="blog-inline-image image-left">
+              <img
+                src="../sound&movement/images/Rich+Jodie_181023-148.jpg"
+                alt="Jodi performing with a Gametrak Controller &amp; Movement"
+              />
+              <figcaption>
+                Jodi performing with a Gametrak Controller &amp; Movement.
+              </figcaption>
+            </figure>
+
+            <h2 id="zones">
+              Capturing Mvt into Sound: Exploring the Interactions: Zones
+            </h2>
+            <p>
+              I chose the GameTrak controller as the first device to explore
+              with Jodi. It has more presence than the accelerometers since the
+              tethers provide a tactile sense. It’s dependability also meant
+              that I knew it would be simple to setup. This meant that I could
+              use part of the day to setup the ESP32 with the wifi which was
+              more of an unknown.
+            </p>
+
+            <p>
+              The first patch that I prepared for Capturing Movement into Sounds
+              was called Zones. I wrote some Javascript code in max to generate
+              cubes randomly placed within the imagined 3D space of the x, y and
+              z co-ordinates of the controller. When a performer’s hand passes
+              through the zone it causes a tone to be played. The tone stops
+              with a slight delay when their hand leaves the zone.
+            </p>
+
+            <p>
+              We started to generate different ways of performing with this
+              device. Jodi wrote text instructions such as “Find a Silence”,
+              “Find a low note, then create a rising melody” etc. These were
+              nice ways to introduce someone into this interaction.
+            </p>
+
+            <p>
+              I see this patch as being useful for creating installation works.
+              It is easy to pick up and it is easy to figure out, but the number
+              of different instructions that we wrote for it, show us that there
+              is a lot of ways to play with it. We also gave the audience a
+              chance to play with it and they quickly picked it up showing that
+              it would work with the public I would change the sonic output but
+              probably keep a pitch element to it as it provides a nice way to
+              musically play with the sounds.
+            </p>
+
+            <p>
+              Additionally we explored control over a granular synthesiser with
+              the GameTrak controller. It worked well and there was a solid
+              interaction, but it didn’t feel as strong as the triggering of the
+              zones patch. An instrument with a constant sound has quite a
+              different feel to it. The timbre was changed by movement more than
+              pitches. This raises a question: is there enough musical movement
+              to keep the soundworld interesting? We felt that there wasn’t in
+              the iteration that we tried. The Zones patch had a nice sense of
+              space and pauses built into the interaction. The random element
+              meant that the physical positions of the pauses would be different
+              each time which I found enjoyable to experience.
+            </p>
+
+            <p>
+              This is a quick overview and an example of one of the interactions
+              that we created over the course of the workshops. For other
+              resources to people using the GameTrak Controller can be found:
+              here, here and here
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <!-- ==========================
+             BACK TO PROJECTS
+        ========================== -->
+
+      <section class="project-navigation">
+        <a href="../sound&movement/sound&movement.html">
+          ← Back to Sound & Movement
+        </a>
+      </section>
+
+      <img
+        class="arts-council-logo"
+        src="/images/ArtsCouncilStrip.png"
+        alt="Arts Council of Wales logo"
+      />
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Load the navigation bar -->
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/loadComponents.js"></script>
+  </body>
+</html>

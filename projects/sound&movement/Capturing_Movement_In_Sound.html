@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Capturing Movement in Sound</title>
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/blog.css" />
+
+    <!-- Font for the symbols for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ==========================
+         NAVIGATION
+    ========================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- ==========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+      <!-- ==========================
+             BLOG POST
+        ========================== -->
+
+      <article class="blog-post" aria-labelledby="blog-title">
+        <!-- ==========================
+             PROJECT HEADER
+        ========================== -->
+
+        <header class="page-header">
+          <div class="project-header-meta">
+            <span> 2023 </span>
+
+            <span> Performance / Technology </span>
+          </div>
+
+          <h1 id="blog-title">Capturing Movement in Sound</h1>
+
+          <p class="project-intro">
+            This is an import from the blog on my last website. It is an
+            overview of the Capturing Movement in Sound first R&D project.
+          </p>
+
+          <div class="tags">
+            <span>Dance</span>
+            <span>Electronics</span>
+            <span>Technology</span>
+          </div>
+
+          <div class="blog-toc" aria-label="Table of contents">
+            <p class="eyebrow">Contents</p>
+
+            <ol>
+              <li><a href="#overview">Overview</a></li>
+              <li><a href="#instruments">Overview of Instruments</a></li>
+              <li><a href="#gametrak">GameTrak Controller</a></li>
+              <li><a href="#esp32">ESP32 + Accelerometer Control</a></li>
+              <li><a href="#kinect">Xbox Kinect/Webcam</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+            </ol>
+          </div>
+        </header>
+
+        <!-- ==========================
+             HERO IMAGE
+        ========================== -->
+
+        <section class="project-hero-image">
+          <img
+            src="/projects/sound&movement/images/Rich+Jodie_181023-092.jpg"
+            alt="Sound & Movement performance"
+          />
+
+          <p class="image-caption">
+            Sound &amp; Documentation by: Alastair Gray
+          </p>
+        </section>
+
+        <!-- ==========================
+             OVERVIEW
+        ========================== -->
+
+        <section class="project-content-section" id="overview">
+          <div class="project-section-label">
+            <h2 id="overview">Overview</h2>
+          </div>
+
+          <div class="project-section-content">
+            <p class="large-text">
+              In this post I will share my experiences with my recent Arts
+              Council of Wales funded R&D: Capturing Movement in Sound. This is
+              an overview on the type of devices that I used. Over the next
+              week, I will be describe technical aspects for people interested
+              in trying out similar ideas.
+            </p>
+
+            <p>
+              Capturing Movement in Sound continued my explorations from
+              Circling Above. The goal was to try out a new collaboration along
+              with new methods for gestural interaction. My interest came from a
+              musical perspective but also as a maker of digital music devices.
+              This would be the first time creating a device for someone else to
+              use. I was working alongside dancer/choreographer Jodi-Ann
+              Nicholson.
+            </p>
+
+            <p>
+              We structured the project over three weeks. The first week was
+              setup and introduced the devices to Jodi. The devices for me are
+              experiential. I can describe what they do and what sounds they
+              produce, but the interaction has a quality that you have to
+              explore yourself. It is one of the things that really excites me
+              about this technology. The second week was refining the
+              instruments and interactions, then the third was working towards a
+              private showing. During the process, we had visitors to gain other
+              perspectives. The instruments planned to use were the GameTrak
+              Controller, Xbox Kinect and accelerometers using ESP32
+              microcontrollers. The audio and visuals were programmed in
+              Max/MSP.
+            </p>
+
+            <h2 id="instruments">Overview of Instruments</h2>
+
+            <p>
+              The planned devices were the Xbox Kinect/webcam, GameTrak
+              controller and an ESP32/Arduino based solution. Before the
+              workshops, I designed interactions to try out with each of the
+              instruments. I also pre-programmed the ESP32 controllers and
+              soldered the accelerometer circuits. The goal was to have minimal
+              programming during the workshop weeks. This meant that we could
+              focus on the movement aspects of the project and not technical
+              details.
+            </p>
+
+            <figure class="blog-inline-image image-left">
+              <img
+                src="../sound&movement/images/Rich+Jodie_181023-148.jpg"
+                alt="Jodi performing with a Gametrak Controller &amp; Movement"
+              />
+              <figcaption>
+                Jodi performing with a Gametrak Controller &amp; Movement.
+              </figcaption>
+            </figure>
+
+            <h2 id="gametrak">GameTrak Controller</h2>
+            <p>
+              The GameTrak Controller is a device that I have used in many
+              performances. It is an old PS2 controller that provides 360 degree
+              tracking. They can normally be found on Ebay for around £20. It
+              consists of two joysticks with tethers that stretch out of each to
+              provide 360º control. There is also a foot-switch for additional
+              control. The device connects via USB to your computer and from
+              there you can map the data to whatever you would like.
+            </p>
+
+            <p>
+              The main advantage of the GameTrak Controller is that is it is
+              dependable. You plug it in and it tends to work each time with
+              minimal fuss. Because of this it is my backup device for any
+              project that I work on. The negative is that it is not the nicest
+              looking. It also has the tethers so they can restrict the movement
+              of the performer. On the other-hand, you could incorporate the
+              restriction into the concept of the piece.
+            </p>
+
+            <h2 id="esp32">ESP32 + Accelerometer Control</h2>
+            <p>
+              The ESP32 is a microcontroller similar to an Arduino. The one that
+              I chose was the Firebeetle ESP32 by DFRobot. Before the project,
+              it was the device that I was the most excited about due to its
+              WIFI and Bluetooth capability. My plan was to create a circuit
+              with accelerometers and track the orientation of Jodi's gestures.
+              They worked well during the R&D as there was private WIFI in
+              Chapter Arts for the hire space.
+            </p>
+
+            <p>
+              Compared to the GameTrak Controller they need more technical
+              knowledge. Especially in connecting them to WIFI or Bluetooth.
+              First, you will need to make the circuit yourself. This requires
+              the ability to solder. They you need to program in a version of
+              C++ and upload them to the board. They then can send the data to
+              whatever creative programming platform that you use.
+            </p>
+
+            <p>
+              Despite the learning curve, there lots of tutorials online.
+              Following them, you can quickly build up the base of knowledge
+              needed for a specific project. The benefits of learning to use
+              them is that it feels like you can do anything with these devices.
+              I love the fact that I am not dependent on any particular device
+              or interaction. I can create a completely new device or
+              interaction from scratch. This is a strong reason why i would
+              recommend exploring them. Potentially in a simpler project than
+              this first.
+            </p>
+
+            <figure class="blog-inline-image image-right">
+              <img
+                src="../sound&movement/images/Rich+Jodie_181023-153.jpg"
+                alt="Jodi performing with a Gametrak Controller &amp; Movement"
+              />
+              <figcaption>
+                Jodi performing with a Gametrak Controller
+              </figcaption>
+            </figure>
+
+            <h2 id="kinect">Xbox Kinect/Webcam</h2>
+            <p>
+              One thing that I had to jettison before the project started was
+              the Xbox Kinect. Since last I used the device, the operating
+              system for my computer had been updated. I researched ways to make
+              it work with Mac OSX Ventura 13 but it was too steep a hill to
+              climb and there were other interactions to explore. It is
+              something that I will come back to. I love the way that the
+              tracking from an Xbox Kinect is wireless. There is a sense of
+              magic to it.
+            </p>
+
+            <p>
+              Researching for this part of the project, I did discover
+              openFrameworks which is a toolkit for C++. I am interested in
+              exploring this for future projects as it could be possible to code
+              my own skeleton tracking device. This would be a way to future
+              proof my own projects. It is a downside with using other peoples
+              externals. If they choose to discontinue them, it means that your
+              piece can become out of date. Creating as much of your own
+              material as possible means that you potentially avoid this.
+            </p>
+
+            <p>
+              My research also revealed that there are interesting developments
+              in using AI tools for tracking. The only problem was that most of
+              them were behind a paywall that was much too high for this
+              project’s budget. I do feel skeleton tracking is a technology that
+              will grow in influence in the future.
+            </p>
+
+            <h2 id="conclusion">Conclusion</h2>
+            <p>
+              This has been the overview of the type of devices that I used and
+              why. In the next couple of posts, I will go into more detail about
+              the GameTrak Controller and ESP32. They will be more technical and
+              hopefully help people who are interested in using this technology
+              a head start. Then there will be a final post where I talk about
+              the interactions and working alongside Jodi.
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <!-- ==========================
+             BACK TO PROJECTS
+        ========================== -->
+
+      <section class="project-navigation">
+        <a href="../sound&movement/sound&movement.html">
+          ← Back to Sound & Movement
+        </a>
+      </section>
+
+      <img
+        class="arts-council-logo"
+        src="/images/ArtsCouncilStrip.png"
+        alt="Arts Council of Wales logo"
+      />
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Load the navigation bar -->
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/loadComponents.js"></script>
+  </body>
+</html>
