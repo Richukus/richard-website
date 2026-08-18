@@ -1,0 +1,35 @@
+/* ==========================
+   DOWNLOADS
+   ========================== */
+
+.downloads {
+  margin-top: 0px;
+  margin-bottom: 80px;
+}
+
+.downloads h2 {
+  margin-bottom: 40px;
+}
+
+.download-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.download-card {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.download-card h3 {
+  margin: 0 0 12px;
+}
+
+.download-card p {
+  margin: 0 0 15px;
+}
+
+.download-card a {
+  display: inline-block;
+}

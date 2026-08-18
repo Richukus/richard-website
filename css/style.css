@@ -75,11 +75,17 @@ body::after {
   z-index: -1;
 }
 
-.project-navigation a {
+.navigation-back {
+  padding: 20px 10% 0;
+  margin: 0;
+}
+
+.navigation-back a {
   color: var(--text-muted);
   text-decoration: none;
 }
-.project-navigation a:hover {
+
+.navigation-back a:hover {
   color: var(--accent-light);
 }
 
@@ -136,7 +142,7 @@ img {
 }
 
 a {
-  color: rgb(0, 0, 0);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -269,7 +275,7 @@ nav.show {
 }
 
 section {
-  padding: 120px 10%;
+  padding: 50px 10%;
 }
 
 h2 {
@@ -393,10 +399,8 @@ footer p {
 
 .page-header {
   max-width: 900px;
-
   margin: 0 auto;
-
-  padding: 180px 10% 30px;
+  padding: 0 10% 30px;
 }
 
 .page-header h1 {

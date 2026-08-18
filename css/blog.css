@@ -174,12 +174,6 @@
   padding-top: 0;
 }
 
-.blog-list {
-  display: list-item;
-  margin-bottom: 8px;
-  color: inherit;
-}
-
 @media (max-width: 700px) {
   .blog-inline-image,
   .blog-inline-image.image-left,
