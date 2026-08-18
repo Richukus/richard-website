@@ -1,5 +1,12 @@
+const SITE_ROOT = "/richard-website/";
+
 async function loadNavbar() {
-  const response = await fetch("components/navbar.html");
+  const response = await fetch(`${SITE_ROOT}components/navbar.html`);
+
+  if (!response.ok) {
+    throw new Error(`Failed to load navbar: ${response.status}`);
+  }
+
   const html = await response.text();
 
   document.getElementById("navbar-placeholder").innerHTML = html;
@@ -8,7 +15,12 @@ async function loadNavbar() {
 }
 
 async function loadFooter() {
-  const response = await fetch("components/footer.html");
+  const response = await fetch(`${SITE_ROOT}components/footer.html`);
+
+  if (!response.ok) {
+    throw new Error(`Failed to load footer: ${response.status}`);
+  }
+
   const html = await response.text();
 
   document.getElementById("footer-placeholder").innerHTML = html;
