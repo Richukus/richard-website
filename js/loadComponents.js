@@ -1,4 +1,5 @@
-const SITE_ROOT = "/richard-website/";
+const SITE_ROOT =
+  window.location.hostname === "richukus.github.io" ? "/richard-website/" : "/";
 
 async function loadNavbar() {
   const response = await fetch(`${SITE_ROOT}components/navbar.html`);
