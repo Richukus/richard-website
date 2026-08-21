@@ -1,8 +1,11 @@
-const SITE_ROOT =
-  window.location.hostname === "richukus.github.io" ? "/richard-website/" : "/";
+const script = document.currentScript;
+
+const scriptURL = new URL(script.src);
+
+const SITE_ROOT = new URL("../", scriptURL);
 
 async function loadNavbar() {
-  const response = await fetch(`${SITE_ROOT}components/navbar.html`);
+  const response = await fetch(new URL("components/navbar.html", SITE_ROOT));
 
   if (!response.ok) {
     throw new Error(`Failed to load navbar: ${response.status}`);
@@ -16,7 +19,7 @@ async function loadNavbar() {
 }
 
 async function loadFooter() {
-  const response = await fetch(`${SITE_ROOT}components/footer.html`);
+  const response = await fetch(new URL("components/footer.html", SITE_ROOT));
 
   if (!response.ok) {
     throw new Error(`Failed to load footer: ${response.status}`);
